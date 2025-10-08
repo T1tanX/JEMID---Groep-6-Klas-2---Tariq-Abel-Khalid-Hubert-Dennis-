@@ -121,11 +121,9 @@
                 </button>
             </a>
 
-            <a href="website.html">
-                <button class="rounded-btn buttonSettings1" style="position: relative; right: 20px">
-                    <p style="color: white;">Login</p>
-                </button>
-            </a>
+             <button class="rounded-btn buttonSettings1" style="position: relative; right: 20px" onclick="alert('Login successful')">
+                <p style="color: white;">Login</p>
+            </button>
         </div>
 
     </div>
