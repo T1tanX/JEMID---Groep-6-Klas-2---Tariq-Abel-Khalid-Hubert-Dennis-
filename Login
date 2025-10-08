@@ -101,31 +101,33 @@
 
     <div class="login-container">
         <div class="profile">
-            <img src="C:\Users\tariq\Downloads\Screenshot_2025-09-15-10-55-28-528_com.nand.addtext-edit.jpg" alt="Profile picture">
+            <img src="profile.jpg.jpg" alt="Profile picture">
         </div>
 
-        <div>
-            <label for="email">Email:</label><br>
-            <input type="email" id="email" placeholder="Enter your email">
-        </div>
 
-        <div>
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" placeholder="Enter your password">
-        </div>
+        <form action="/login" method="post" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+            <div>
+                <label for="email">Email:</label><br>
+                <input type="email" name="email" id="email" placeholder="Enter your email" required>
+            </div>
 
-        <div class="button-container">
-            <a href="website.html">
-                <button class="rounded-btn buttonSettings1">
-                    <p style="color: white;">Go to register</p>
+            <div>
+                <label for="password">Password:</label><br>
+                <input type="password" name="password" id="password" placeholder="Enter your password" required>
+            </div>
+
+            <div class="button-container">
+                <a href="website.html">
+                    <button type="button" class="rounded-btn buttonSettings1">
+                        <p style="color: white;">Go to register</p>
+                    </button>
+                </a>
+
+                <button class="rounded-btn buttonSettings1" type="submit" style="position: relative; right: 20px" onclick="alert('Login successful')">
+                    <p style="color: white;">Login</p>
                 </button>
-            </a>
-
-             <button class="rounded-btn buttonSettings1" style="position: relative; right: 20px" onclick="alert('Login successful')">
-                <p style="color: white;">Login</p>
-            </button>
-        </div>
-
+            </div>
+        </form>
     </div>
 
 </body>
