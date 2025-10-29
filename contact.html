@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PlantBid – Contact</title>
+  <style>
+    :root {
+      --bg: #0f1a22;
+      --panel: #0b141b;
+      --card: #0e1c25;
+      --text: #eaf6ef;
+      --accent: #36d26b;
+      --muted: #89a0ab;
+      --shadow: 0 6px 24px rgba(0, 0, 0, .35);
+      --radius: 18px;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Helvetica Neue, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 900px at 10% -10%, #16242d 0%, var(--bg) 45%);
+      overflow-y: scroll;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: .2s;
+    }
+
+    nav a:hover, nav a.active {
+      background: var(--accent);
+      color: #04240f;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 10px;
+      color: #c9f0d7;
+    }
+
+    .contact-info {
+      background: var(--panel);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px 30px;
+      margin-bottom: 30px;
+    }
+
+    .contact-info p {
+      font-size: 16px;
+      margin: 8px 0;
+    }
+
+    .contact-info a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .socials {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin: 30px 0;
+    }
+
+    .socials a {
+      font-size: 26px;
+      color: var(--accent);
+      transition: transform 0.2s;
+    }
+
+    .socials a:hover {
+      transform: scale(1.1);
+      color: #5bf486;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 30px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .faq-section {
+      background: var(--panel);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px 30px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #23343c;
+      padding: 10px 0;
+    }
+
+    .faq-question {
+      font-weight: 700;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .faq-question::after {
+      content: '+';
+      position: absolute;
+      right: 0;
+      font-weight: 700;
+    }
+
+    .faq-question.active::after {
+      content: '-';
+    }
+
+    .faq-answer {
+      display: none;
+      color: var(--muted);
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    .faq-answer.show {
+      display: block;
+      animation: fadeIn .3s ease;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(-3px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:42px;height:42px;border-radius:50%;background:#123;display:grid;place-items:center;border:2px solid #2e3e46"></div>
+      <div>
+        <div style="opacity:.75;font-size:14px">earchannel</div>
+        <div style="font-weight:700">PlantBid</div>
+      </div>
+    </div>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="mijn-veilingen.html">Mijn veilingen</a>
+      <a href="gebruiker.html">Gebruiker</a>
+      <a href="#">Settings</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Neem contact met ons op</h1>
+    <div class="contact-info">
+      <p><strong>Email:</strong> <a href="mailto:info@plantbid-demo.nl">info@plantbid-demo.nl</a></p>
+      <p><strong>Telefoon:</strong> <a href="tel:+31612345678">+31 6 12345678</a></p>
+      <p>Onze klantenservice is bereikbaar van <strong>maandag t/m vrijdag</strong> tussen <strong>09:00 en 17:00</strong>.</p>
+    </div>
+
+    <div class="socials">
+      <a href="https://wa.me/31612345678" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://facebook.com/plantbid" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://x.com/plantbid" target="_blank" title="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://instagram.com/plantbid" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <div class="faq-section">
+      <h2>Veelgestelde vragen (FAQ)</h2>
+      <div class="faq-item">
+        <div class="faq-question">Hoe kan ik deelnemen aan een veiling?</div>
+        <div class="faq-answer">Maak een gratis account aan, verifieer je e-mailadres en bied mee via de knop “Plaats bod” op de productpagina.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Wanneer wordt mijn betaling verwerkt?</div>
+        <div class="faq-answer">Betalingen worden binnen 1-2 werkdagen verwerkt nadat de veiling is afgesloten.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Kan ik mijn bod annuleren?</div>
+        <div class="faq-answer">Nee, zodra een bod is geplaatst is deze bindend volgens onze veilingvoorwaarden.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Hoe neem ik contact op met de verkoper?</div>
+        <div class="faq-answer">Ga naar je biedgeschiedenis en klik op “Contact verkoper” om direct een bericht te sturen via ons interne berichtensysteem.</div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 PlantBid – Alle rechten voorbehouden.
+  </footer>
+
+  <script>
+    const questions = document.querySelectorAll('.faq-question');
+    questions.forEach(q => {
+      q.addEventListener('click', () => {
+        q.classList.toggle('active');
+        const answer = q.nextElementSibling;
+        answer.classList.toggle('show');
+      });
+    });
+  </script>
+
+  <script>
+  // Automatisch active link markeren
+  const current = window.location.pathname.split('/').pop();
+  const links = document.querySelectorAll('nav a');
+  links.forEach(link => {
+    if (link.getAttribute('href') === current) {
+      link.classList.add('active');
+    }
+  });
+</script>
+
+</body>
+</html>

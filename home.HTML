@@ -97,11 +97,11 @@
       </div>
     </div>
     <nav>
-      <a href="#">Home</a>
-      <a href="#">Mijn veilingen</a>
-      <a href="#">Gebruiker</a>
+      <a href="home.html">Home</a>
+      <a href="mijn-veilingen.html">Mijn veilingen</a>
+      <a href="gebruiker.html">Gebruiker</a>
       <a href="#">Settings</a>
-      <a href="#">Contact</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
@@ -160,5 +160,17 @@
     const tick=()=>{if(remaining<0)return;const d=Math.floor(remaining/86400);const h=Math.floor((remaining%86400)/3600);const m=Math.floor((remaining%3600)/60);countdownEl.textContent=`${d}d, ${h}h, ${m}min`;remaining-=60;};tick();setInterval(tick,60000);
     document.getElementById('btnBuy').addEventListener('click',()=>{const el=document.getElementById('currentBid');el.textContent='Gefeliciteerd! Je hebt het direct gekocht.';el.style.background='linear-gradient(90deg, var(--accent), var(--accent-2))';el.style.color='#052b15';});
   </script>
+
+  <script>
+  // Automatisch active link markeren
+  const current = window.location.pathname.split('/').pop();
+  const links = document.querySelectorAll('nav a');
+  links.forEach(link => {
+    if (link.getAttribute('href') === current) {
+      link.classList.add('active');
+    }
+  });
+</script>
+
 </body>
 </html>

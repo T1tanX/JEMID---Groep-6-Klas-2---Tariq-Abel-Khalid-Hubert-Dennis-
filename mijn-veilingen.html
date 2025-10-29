@@ -180,10 +180,10 @@
     </div>
     <nav>
       <a href="home.html">Home</a>
-      <a href="mijn-veilingen.html" class="active">Mijn veilingen</a>
-      <a href="#">Gebruiker</a>
+      <a href="mijn-veilingen.html">Mijn veilingen</a>
+      <a href="gebruiker.html">Gebruiker</a>
       <a href="#">Settings</a>
-      <a href="#">Contact</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
@@ -293,5 +293,17 @@
       });
     });
   </script>
+
+  <script>
+  // Automatisch active link markeren
+  const current = window.location.pathname.split('/').pop();
+  const links = document.querySelectorAll('nav a');
+  links.forEach(link => {
+    if (link.getAttribute('href') === current) {
+      link.classList.add('active');
+    }
+  });
+</script>
+
 </body>
 </html>

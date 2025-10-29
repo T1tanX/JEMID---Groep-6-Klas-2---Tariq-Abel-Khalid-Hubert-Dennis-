@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PlantBid – Gebruiker</title>
+  <style>
+    :root {
+      --bg: #0f1a22;
+      --panel: #0b141b;
+      --card: #0e1c25;
+      --text: #eaf6ef;
+      --accent: #36d26b;
+      --muted: #89a0ab;
+      --shadow: 0 6px 24px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Helvetica Neue, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 900px at 10% -10%, #16242d 0%, var(--bg) 45%);
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: .2s;
+    }
+
+    nav a:hover, nav a.active {
+      background: var(--accent);
+      color: #04240f;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 30px;
+      margin-bottom: 10px;
+      color: #c9f0d7;
+    }
+
+    .profile-card {
+      background: var(--panel);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 30px;
+      display: grid;
+      gap: 20px;
+    }
+
+    .profile-top {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .profile-top img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+    }
+
+    .profile-info {
+      flex: 1;
+    }
+
+    .profile-info h2 {
+      margin: 0 0 8px;
+    }
+
+    .profile-info p {
+      margin: 4px 0;
+      color: var(--muted);
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    label {
+      font-weight: 600;
+    }
+
+    input {
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid #2a3e45;
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-size: 15px;
+      width: 100%;
+    }
+
+    .optional {
+      font-size: 13px;
+      color: var(--muted);
+      margin-left: 4px;
+      font-style: italic;
+    }
+
+    button {
+      background: var(--accent);
+      color: #04240f;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    button:hover {
+      filter: brightness(1.1);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:42px;height:42px;border-radius:50%;background:#123;display:grid;place-items:center;border:2px solid #2e3e46"></div>
+      <div>
+        <div style="opacity:.75;font-size:14px">earchannel</div>
+        <div style="font-weight:700">PlantBid</div>
+      </div>
+    </div>
+    
+    <!-- alle vensters-->>
+    
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="mijn-veilingen.html">Mijn veilingen</a>
+      <a href="gebruiker.html">Gebruiker</a>
+      <a href="#">Settings</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Gebruikersprofiel</h1>
+
+    <div class="profile-card">
+      <div class="profile-top">
+        <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=400&auto=format&fit=crop" alt="Profielfoto gebruiker">
+        <div class="profile-info">
+          <h2>Jan de Groen</h2>
+          <p>Account sinds: 12 maart 2024</p>
+          <p>Laatst ingelogd: vandaag, 14:23</p>
+        </div>
+      </div>
+
+      <form>
+        <div>
+          <label>Naam</label>
+          <input type="text" value="Jan de Groen" />
+        </div>
+        <div>
+          <label>E-mailadres</label>
+          <input type="email" value="jan.degroen@plantbid.nl" />
+        </div>
+        <div>
+          <label>Extra e-mail <span class="optional">(optioneel)</span></label>
+          <input type="email" placeholder="bijv. tweede@mail.nl" />
+        </div>
+        <div>
+          <label>Adres</label>
+          <input type="text" value="Bloemenlaan 42" />
+        </div>
+        <div>
+          <label>Postcode</label>
+          <input type="text" value="1234 AB" />
+        </div>
+        <div>
+          <label>Telefoonnummer</label>
+          <input type="tel" value="+31 6 12345678" />
+        </div>
+
+        <button type="button">Wijzigingen opslaan</button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    // Automatische actieve link
+    const current = window.location.pathname.split('/').pop();
+    const links = document.querySelectorAll('nav a');
+    links.forEach(link => {
+      if (link.getAttribute('href') === current || (current === '' && link.getAttribute('href') === 'home.html')) {
+        link.classList.add('active');
+      }
+    });
+  </script>
+</body>
+</html>
