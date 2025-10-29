@@ -1,1 +1,1 @@
-website.html = register screen                                                                                                                                                                             website2.html = login screen
+(website.html = register screen) | (website2.html = login screen)
