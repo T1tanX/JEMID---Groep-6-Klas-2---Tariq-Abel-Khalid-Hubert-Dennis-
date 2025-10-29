@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PlantBid – Mijn veilingen</title>
+  <style>
+    :root {
+      --bg: #0f1a22;
+      --panel: #0b141b;
+      --card: #0e1c25;
+      --text: #eaf6ef;
+      --accent: #36d26b;
+      --muted: #89a0ab;
+      --shadow: 0 6px 24px rgba(0, 0, 0, .35);
+      --radius: 18px;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Helvetica Neue, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background: radial-gradient(1200px 900px at 10% -10%, #16242d 0%, var(--bg) 45%);
+      overflow-y: scroll;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: .2s;
+    }
+
+    nav a:hover, nav a.active {
+      background: var(--accent);
+      color: #04240f;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #c9f0d7;
+    }
+
+    /* Filter menu */
+    .filter-menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      background: var(--panel);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 12px 18px;
+      margin-bottom: 24px;
+    }
+
+    .filter-menu select, .filter-menu input {
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid #2a3e45;
+      border-radius: 10px;
+      padding: 8px 10px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .filter-menu button {
+      background: var(--accent);
+      color: #04240f;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .filter-menu button:hover {
+      filter: brightness(1.1);
+    }
+
+    .auction-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .auction-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s;
+    }
+
+    .auction-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .auction-card img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+    }
+
+    .auction-body {
+      padding: 14px 16px;
+    }
+
+    .auction-body h3 {
+      margin: 0 0 6px;
+    }
+
+    .auction-body p {
+      margin: 4px 0;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .auction-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px 16px;
+    }
+
+    .btn {
+      appearance: none;
+      border: none;
+      color: #04240f;
+      background: var(--accent);
+      border-radius: 40px;
+      padding: 8px 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .status {
+      font-size: 14px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:42px;height:42px;border-radius:50%;background:#123;display:grid;place-items:center;border:2px solid #2e3e46"></div>
+      <div>
+        <div style="opacity:.75;font-size:14px">earchannel</div>
+        <div style="font-weight:700">PlantBid</div>
+      </div>
+    </div>
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="mijn-veilingen.html" class="active">Mijn veilingen</a>
+      <a href="#">Gebruiker</a>
+      <a href="#">Settings</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Mijn veilingen</h1>
+
+    <div class="filter-menu">
+      <label for="zoek">Zoek:</label>
+      <input type="text" id="zoek" placeholder="Zoek op naam...">
+
+      <label for="categorie">Categorie:</label>
+      <select id="categorie">
+        <option value="alle">Alle</option>
+        <option value="bloemen">Bloemen</option>
+        <option value="bomen">Bomen</option>
+        <option value="struiken">Struiken</option>
+      </select>
+
+      <label for="status">Status:</label>
+      <select id="status">
+        <option value="alle">Alle</option>
+        <option value="lopend">Lopend</option>
+        <option value="afgelopen">Afgelopen</option>
+      </select>
+
+      <button id="filterBtn">Filter</button>
+    </div>
+
+    <div class="auction-grid" id="auctionList">
+      <!-- Veilingen -->
+      <div class="auction-card">
+        <img src="https://images.unsplash.com/photo-1455587734955-081b22074882?q=80&w=1200&auto=format&fit=crop" alt="Hyacint Midnight Mystic" />
+        <div class="auction-body">
+          <h3>Hyacint 'Midnight Mystic'</h3>
+          <p>Huidig bod: €100.000</p>
+          <p>Startprijs: €150.000</p>
+        </div>
+        <div class="auction-footer">
+          <button class="btn">Bekijk</button>
+          <span class="status">Lopend</span>
+        </div>
+      </div>
+
+      <div class="auction-card">
+        <img src="https://images.unsplash.com/photo-1597721183696-005365277852?q=80&w=1200&auto=format&fit=crop" alt="Cloud-pruned trees" />
+        <div class="auction-body">
+          <h3>Cloud-pruned trees</h3>
+          <p>Huidig bod: €4.500</p>
+          <p>Startprijs: €5.000</p>
+        </div>
+        <div class="auction-footer">
+          <button class="btn">Bekijk</button>
+          <span class="status">Lopend</span>
+        </div>
+      </div>
+
+      <div class="auction-card">
+        <img src="https://images.unsplash.com/photo-1459163262187-54b8276b3b3a?q=80&w=1200&auto=format&fit=crop" alt="Snowdrops" />
+        <div class="auction-body">
+          <h3>Snowdrops</h3>
+          <p>Huidig bod: €1.850</p>
+          <p>Startprijs: €2.000</p>
+        </div>
+        <div class="auction-footer">
+          <button class="btn">Bekijk</button>
+          <span class="status">Afgelopen</span>
+        </div>
+      </div>
+
+      <!-- meer voorbeeldkaarten -->
+      <div class="auction-card">
+        <img src="https://images.unsplash.com/photo-1559639156-c7441e2bd0e2?q=80&w=1200&auto=format&fit=crop" alt="Hepaticas" />
+        <div class="auction-body">
+          <h3>Hepaticas</h3>
+          <p>Huidig bod: €450</p>
+          <p>Startprijs: €600</p>
+        </div>
+        <div class="auction-footer">
+          <button class="btn">Bekijk</button>
+          <span class="status">Lopend</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Eenvoudige filterfunctie
+    document.getElementById('filterBtn').addEventListener('click', function() {
+      const zoek = document.getElementById('zoek').value.toLowerCase();
+      const cat = document.getElementById('categorie').value;
+      const status = document.getElementById('status').value;
+      const cards = document.querySelectorAll('.auction-card');
+
+      cards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        const stat = card.querySelector('.status').textContent.toLowerCase();
+        let visible = true;
+
+        if (zoek && !title.includes(zoek)) visible = false;
+        if (status !== 'alle' && stat !== status) visible = false;
+        if (cat !== 'alle') {
+          // Simpele categoriefilter (op naam)
+          if (!title.includes(cat.slice(0, -1))) visible = false;
+        }
+
+        card.style.display = visible ? 'flex' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
