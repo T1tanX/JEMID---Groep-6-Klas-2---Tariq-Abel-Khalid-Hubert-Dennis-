@@ -15,7 +15,7 @@
         .roof, .bottom {
             width: 100%;
             height: 50px;
-            background-color: rgba(67, 151, 67, 0.837);
+            background-color: #182a33;
             position: fixed;
             left: 0;
         }
@@ -43,7 +43,7 @@
             justify-content: center;
             align-items: center;
             margin-bottom: 20px;
-            overflow: hidden; 
+            overflow: hidden;
         }
 
         .profile img {
@@ -55,22 +55,22 @@
         .rounded-btn {
             padding: 10px 20px;
             color: white;
-            border: none;          
-            border-radius: 12px;    
+            border: none;
+            border-radius: 12px;
             cursor: pointer;
         }
 
         .buttonSettings1{
-            padding-top:0.5%; 
-            padding-bottom: 0.5%; 
-            background-color: transparent; 
-            border: 2px solid white; 
+            padding-top:0.5%;
+            padding-bottom: 0.5%;
+            background-color: transparent;
+            border: 2px solid white;
             position: relative;
         }
 
         .button-container {
             display: flex;
-            gap: 50px; 
+            gap: 50px;
             font-family: Arial, Helvetica, sans-serif;
             font-size: 20px;
             color: white;
@@ -94,47 +94,47 @@
 </head>
 <body>
 
-    <div class="roof"></div>
-    <hr style="position: fixed; left: 0; top: 50px; width: 100%; border: 1px solid white;">
-    <hr style="position: fixed; left: 0; bottom: 50px; width: 100%; border: 1px solid white;">
-    <div class="bottom"></div>
+<div class="roof"></div>
+<hr style="position: fixed; left: 0; top: 50px; width: 100%; border: 1px solid white;">
+<hr style="position: fixed; left: 0; bottom: 50px; width: 100%; border: 1px solid white;">
+<div class="bottom"></div>
 
-    <div class="login-container">
-        <div class="profile">
-            <img src="profile.jpg.jpg" alt="Profile picture">
+<div class="login-container">
+    <div class="profile">
+        <img src="profile.jpg.jpg" alt="Profile picture">
+    </div>
+
+    <form action="/register" method="post" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+
+        <div>
+            <label for="username">Username:</label><br>
+            <input type="text" name="username" id="username" placeholder="Enter your username" required>
         </div>
 
-        <form action="/register" method="post" style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+        <div>
+            <label for="email">Email:</label><br>
+            <input type="email" name="email" id="email" placeholder="Enter your email" required>
+        </div>
 
-            <div>
-                <label for="username">Username:</label><br>
-                <input type="text" name="username" id="username" placeholder="Enter your username" required>
-            </div>
+        <div>
+            <label for="password">Password:</label><br>
+            <input type="password" name="password" id="password" placeholder="Enter your password" required>
+        </div>
 
-            <div>
-                <label for="email">Email:</label><br>
-                <input type="email" name="email" id="email" placeholder="Enter your email" required>
-            </div>
+        <div class="button-container">
+            <a href="website2.html">
+                <button class="rounded-btn buttonSettings1" type="submit">
+                    <p style="color: white;">Register</p>
+                </button>
+            </a>
 
-            <div>
-                <label for="password">Password:</label><br>
-                <input type="password" name="password" id="password" placeholder="Enter your password" required>
-            </div>
-
-            <div class="button-container">
-                <a href="website2.html">
-                    <button class="rounded-btn buttonSettings1" type="submit">
-                        <p style="color: white;">Register</p>
-                    </button>
-                </a>
-
-                <a href="website2.html">
-                    <button type="button" class="rounded-btn buttonSettings1" style="position: relative; right: 20px">
-                        <p style="color: white;">Go to login</p>
-                    </button>
-                </a>
-            </div>
-        </form>
-    </div>
+            <a href="website2.html">
+                <button type="button" class="rounded-btn buttonSettings1" style="position: relative; right: 20px">
+                    <p style="color: white;">Go to login</p>
+                </button>
+            </a>
+        </div>
+    </form>
+</div>
 </body>
 </html>
