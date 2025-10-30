@@ -1,0 +1,18 @@
+# .NET build artifacts
+bin/
+obj/
+*.user
+*.vs
+*.db
+
+# SQLite or local DB
+Veiling.db
+Migrations/
+
+# Visual Studio
+.vscode/
+.vs/
+
+# Environment / secrets
+appsettings.Development.json
+appsettings.Local.json
