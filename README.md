@@ -4,4 +4,4 @@
 
 3) src => Register => (website.jsx = register page.)
 
-4) src => Register => (website2.jsx = register page.)
+4) src => Register => (website2.jsx = login page.)
