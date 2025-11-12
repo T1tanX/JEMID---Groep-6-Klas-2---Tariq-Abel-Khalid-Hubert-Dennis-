@@ -32,6 +32,11 @@ function Website1() {
 
     return (
         <div className="page-container">
+            <div className="roof"></div>
+            <div className="bottom"></div>
+            <hr className="top-hr" />
+            <hr className="bottom-hr" />
+            
             <div className="login-container">
                 <form className="form-container" onSubmit={handleSubmit}>
                     <div className="form-group">
