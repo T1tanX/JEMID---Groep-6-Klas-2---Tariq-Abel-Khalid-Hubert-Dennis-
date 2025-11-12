@@ -1,0 +1,209 @@
+:root {
+    --bg: #0f1a22;
+    --panel: #0b141b;
+    --card: #0e1c25;
+    --text: #eaf6ef;
+    --accent: #36d26b;
+    --accent-2: #23b252;
+    --chip: #182a33;
+    --radius: 16px;
+}
+
+/* Scope everything under .homepage */
+.homepage {
+    margin: 0;
+    font-family: "Segoe UI", Roboto, sans-serif;
+    background: radial-gradient(1200px 900px at 10% -10%, #16242d 0%, var(--bg) 45%);
+    color: var(--text);
+}
+
+/* Header */
+.homepage .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    background: var(--panel);
+    border-radius: var(--radius);
+    flex-wrap: wrap;
+}
+
+.homepage .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.homepage .avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #123;
+    display: grid;
+    place-items: center;
+    border: 2px solid #2e3e46;
+}
+
+.homepage .subtext {
+    opacity: 0.75;
+    font-size: 14px;
+}
+
+.homepage .logo {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Main layout */
+.homepage .wrapper {
+    max-width: 1200px;
+    margin: 24px auto;
+    padding: 16px;
+    display: grid;
+    gap: 18px;
+    grid-template-columns: 320px 1fr 380px;
+}
+
+.homepage .left,
+.homepage .center,
+.homepage .right {
+    background: var(--panel);
+    border-radius: var(--radius);
+    padding: 16px;
+}
+
+.homepage .product-img {
+    width: 100%;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.homepage .chip {
+    margin-top: 12px;
+    background: var(--chip);
+    padding: 10px;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.homepage .btn {
+    background: var(--accent);
+    color: #04240f;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.homepage .kv {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 6px 10px;
+    margin-top: 10px;
+}
+
+.homepage .price-legend {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.homepage .graph {
+    height: 220px;
+    background: #1b2d37;
+    border-radius: 12px;
+    margin-top: 12px;
+    position: relative;
+}
+
+.homepage .price-line {
+    position: absolute;
+    top: 35%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #ff6b6b55;
+}
+
+.homepage .arrow {
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    width: 70%;
+    height: 70%;
+    border-right: 3px solid #9ab;
+    border-top: 3px solid #9ab;
+    transform: skew(-45deg);
+    opacity: 0.8;
+}
+
+.homepage .timer {
+    text-align: center;
+    margin-top: 12px;
+}
+
+/* Cards */
+.homepage .section {
+    grid-column: 1 / -1;
+}
+
+.homepage .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+.homepage .card {
+    background: var(--card);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.homepage .card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.homepage .card-body {
+    padding: 12px;
+}
+
+.homepage .card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+}
+
+.homepage .btn-ghost {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 20px;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+
+.homepage .bookmark {
+    background: #14303b;
+    border: 1px solid #214351;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.homepage .see-more {
+    text-align: right;
+    grid-column: span 12;
+    margin-top: 8px;
+}
+
+@media (max-width: 900px) {
+    .homepage .wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
